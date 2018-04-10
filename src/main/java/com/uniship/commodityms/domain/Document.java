@@ -1,20 +1,34 @@
 package com.uniship.commodityms.domain;
 
-import java.io.File;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "document")
 public class Document {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    @Access(AccessType.PROPERTY)
+    private Integer id;
+    @Column(name = "doc_source")
     private String documentSource;
-    private File documentImage;
+    @Column(name = "doc_image", nullable = false)
+    @Lob
+//    private File documentImage;
+    private Byte[] documentImage;
+    @Column(name = "file_type")
     private String documentType;
+    @Column(name = "to_be_printed")
     private Byte toBePrinted;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -26,11 +40,20 @@ public class Document {
         this.documentSource = documentSource;
     }
 
-    public File getDocumentImage() {
+    /*public File getDocumentImage() {
         return documentImage;
     }
 
     public void setDocumentImage(File documentImage) {
+        this.documentImage = documentImage;
+    }*/
+
+    @JsonIgnore
+    public Byte[] getDocumentImage() {
+        return documentImage;
+    }
+
+    public void setDocumentImage(Byte[] documentImage) {
         this.documentImage = documentImage;
     }
 

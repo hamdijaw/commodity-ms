@@ -2,7 +2,7 @@ package com.uniship.commodityms.domain;
 
 public class Error {
 
-    private String errorId;
+    private String errorId = "100";
     private String errorMessage;
     private String details;
 
