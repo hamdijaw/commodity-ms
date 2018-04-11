@@ -1,9 +1,7 @@
 package com.uniship.commodityms.helper;
 
-import com.uniship.commodityms.domain.Commodity;
+import com.uniship.commodityms.domain.*;
 import com.uniship.commodityms.domain.Error;
-import com.uniship.commodityms.domain.GetCommodityResponse;
-import com.uniship.commodityms.domain.Status;
 
 import java.util.List;
 
@@ -32,4 +30,33 @@ public class ResponseBuilder {
 
         return getCommodityResponse;
     }
+
+    public static SaveCommodityResponse buildSaveCommodityResponseSuccess() {
+        SaveCommodityResponse saveCommodityResponse = new SaveCommodityResponse();
+        Status status = new Status(true, false);
+        saveCommodityResponse.setStatus(status);
+        return saveCommodityResponse;
+    }
+
+    public static SaveCommodityResponse buildSaveCommodityResponseFailure() {
+        SaveCommodityResponse saveCommodityResponse = new SaveCommodityResponse();
+        Status status = new Status(false, true);
+        saveCommodityResponse.setStatus(status);
+        return saveCommodityResponse;
+    }
+
+    public static DeleteCommodityResponse buildDeleteCommodityResponseSuccess() {
+        DeleteCommodityResponse deleteCommodityResponse = new DeleteCommodityResponse();
+        Status status = new Status(true, false);
+        deleteCommodityResponse.setStatus(status);
+        return deleteCommodityResponse;
+    }
+
+    public static DeleteCommodityResponse buildDeleteCommodityResponseFailure() {
+        DeleteCommodityResponse deleteCommodityResponse = new DeleteCommodityResponse();
+        Status status = new Status(false, true);
+        deleteCommodityResponse.setStatus(status);
+        return deleteCommodityResponse;
+    }
+
 }

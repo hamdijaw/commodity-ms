@@ -1,6 +1,7 @@
 package com.uniship.commodityms.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -12,12 +13,14 @@ public class Commodity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
     private Integer id;
+    @NotNull
     @Column(name = "customer_id", nullable = false)
     private Integer customerId;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "description")
     private String description;
+    @NotNull
     private Double length;
     private Double width;
     private Double height;

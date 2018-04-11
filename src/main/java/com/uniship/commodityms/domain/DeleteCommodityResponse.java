@@ -1,12 +1,12 @@
 package com.uniship.commodityms.domain;
 
-import java.util.List;
+public class DeleteCommodityResponse {
 
-public class GetCommodityResponse {
+    public DeleteCommodityResponse() {
+    }
 
     private Status status;
     private Error error;
-    private List<Commodity> commodityList;
 
     public Status getStatus() {
         return status;
@@ -24,11 +24,4 @@ public class GetCommodityResponse {
         this.error = error;
     }
 
-    public List<Commodity> getCommodityList() {
-        return commodityList;
-    }
-
-    public void setCommodityList(List<Commodity> commodityList) {
-        this.commodityList = commodityList;
-    }
 }

@@ -15,7 +15,7 @@ public class FreightGoodsType {
     @Column(name = "sort_order")
     private int sortOrder;
     @Column(name = "terms")
-    private int terms;
+    private String terms;
 
     public Long getId() {
         return id;
@@ -41,11 +41,11 @@ public class FreightGoodsType {
         this.sortOrder = sortOrder;
     }
 
-    public int getTerms() {
+    public String getTerms() {
         return terms;
     }
 
-    public void setTerms(int terms) {
+    public void setTerms(String terms) {
         this.terms = terms;
     }
 }

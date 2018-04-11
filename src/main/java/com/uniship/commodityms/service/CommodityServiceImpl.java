@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CommodityManagementServiceImpl implements CommodityService {
+public class CommodityServiceImpl implements CommodityService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CommodityManagementServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CommodityServiceImpl.class);
 
     private CommodityRepository commodityRepository;
 
     @Autowired
-    public CommodityManagementServiceImpl(CommodityRepository commodityRepository) {
+    public CommodityServiceImpl(CommodityRepository commodityRepository) {
         this.commodityRepository = commodityRepository;
     }
 
