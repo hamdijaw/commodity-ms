@@ -74,7 +74,7 @@ public class Commodity {
     @Column(name = "haz_err")
     private String hazErr;
     //Commodity Document details.
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "document_id")
     private Document documentDetails;
     @Column(name = "created_by", nullable = false)

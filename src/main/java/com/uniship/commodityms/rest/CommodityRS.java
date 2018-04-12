@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,10 +47,19 @@ public class CommodityRS {
     }
 
     @PostMapping("/Commodity")
-    public ResponseEntity<SaveCommodityResponse> saveCommodityList(@RequestBody List<Commodity> commodityList) {
+    public ResponseEntity<SaveCommodityResponse> saveCommodityList(@RequestPart(name = "commodityList") List<Commodity> commodityList,
+                                                                   @RequestPart(name = "document", required = false) MultipartFile documentFile
+                                                                   ) {
         SaveCommodityResponse saveCommodityResponse = null;
         ResponseEntity<SaveCommodityResponse> responseResponseEntity = null;
         try {
+            for (Commodity commodity : commodityList) {
+                Document document = commodity.getDocumentDetails();
+                if (null != document) {
+                    document.setDocumentImage(documentFile.getBytes());
+                }
+            }
+
             commodityService.saveCommodityList(commodityList);
             saveCommodityResponse = ResponseBuilder.buildSaveCommodityResponseSuccess();
             responseResponseEntity = ResponseEntity.status(HttpStatus.CREATED).body(saveCommodityResponse);

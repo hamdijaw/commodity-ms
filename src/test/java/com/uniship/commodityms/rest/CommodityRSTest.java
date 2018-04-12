@@ -3,6 +3,7 @@ package com.uniship.commodityms.rest;
 import com.google.gson.Gson;
 import com.uniship.commodityms.domain.Commodity;
 import com.uniship.commodityms.domain.Document;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@Ignore("skipping tests")
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc

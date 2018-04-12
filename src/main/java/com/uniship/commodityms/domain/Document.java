@@ -16,9 +16,8 @@ public class Document {
     @Column(name = "doc_source")
     private String documentSource;
     @Column(name = "doc_image", nullable = false)
-    @Lob
-//    private File documentImage;
-    private Byte[] documentImage;
+//    @Lob
+    private byte[] documentImage;
     @Column(name = "file_type")
     private String documentType;
     @Column(name = "to_be_printed")
@@ -49,11 +48,11 @@ public class Document {
     }*/
 
     @JsonIgnore
-    public Byte[] getDocumentImage() {
+    public byte[] getDocumentImage() {
         return documentImage;
     }
 
-    public void setDocumentImage(Byte[] documentImage) {
+    public void setDocumentImage(byte[] documentImage) {
         this.documentImage = documentImage;
     }
 

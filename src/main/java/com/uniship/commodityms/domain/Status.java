@@ -14,6 +14,9 @@ public class Status {
     private String code;
     private String description;
 
+    public Status() {
+    }
+
     public Status(boolean isSuccessful, boolean isResultEmpty) {
         if (isSuccessful) {
             if (isResultEmpty) {
